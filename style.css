@@ -160,3 +160,145 @@
   box-shadow: 0 0 20px rgba(137, 180, 250, 0.8), 0 0 30px rgba(137, 180, 250, 0.6);
   cursor: pointer;
 }
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.carousel-container {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  background: #1E1E2E;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(137, 180, 250, 0.4);
+  overflow: hidden;
+}
+
+.carousel-track-container {
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+  min-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.content {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  width: 100%;
+  color: white;
+}
+
+.video-slide .video {
+  flex: 1.5;
+  position: relative;
+  height: 270px;
+}
+
+.video-slide iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 12px;
+}
+
+.video-slide .info {
+  flex: 1.5;
+  border-left: 2px solid #89B4FA;
+  padding-left: 20px;
+}
+
+.image-text-slide img {
+  width: 400px;       /* Sabit genişlik */
+  height: 250px;      /* Sabit yükseklik */
+  object-fit: cover;  /* Kutu dolsun, görsel kırpılsın */
+  min-width: 400px;   /* Minimum genişlik */
+  min-height: 250px;  /* Minimum yükseklik */
+  border-radius: 8px;
+  flex: 1.5;
+}
+
+.image-text-slide .info {
+  flex: 1.5;
+  padding-left: 20px;
+  border-left: 2px solid #89B4FA;
+}
+
+.image-only-slide img {
+  width: 1600px;       /* Sabit genişlik */
+  height: 250px;      /* Sabit yükseklik */
+  object-fit: cover;  /* Kutu dolsun, görsel kırpılsın */
+  min-width: 400px;   /* Minimum genişlik */
+  min-height: 250px;  /* Minimum yükseklik */
+  border-radius: 8px;
+}
+
+.multi-image-slide {
+  display: grid;
+  gap: 10px;
+  width: 100%;
+  grid-template-columns: repeat(4, 1fr); /* 4 sütun */
+}
+
+.multi-image-slide img {
+  width: 100%;          /* Hücre genişliği kadar */
+  height: 250px;        /* Sabit yükseklik */
+  object-fit: cover;    /* Görsel kırpılır, kutuyu doldurur */
+  border-radius: 8px;
+  display: block;
+}
+
+.multi-image-slide img:nth-child(3) {
+  grid-column: span 1;
+}
+
+/* Grid ayarları */
+.multi-image-slide {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;  /* Arka plan tamamen şeffaf */
+  border: none;             /* Çerçeve yok */
+  color: #1E1E2E;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 24px;
+  border-radius: 0;         /* Yuvarlaklık kaldırıldı */
+  transition: none;         /* Hover efektleri iptal edildi */
+  z-index: 5;
+  box-shadow: none;         /* Gölge varsa kaldır */
+}
+
+.carousel-btn:hover {
+  background: transparent;  /* Hoverda da arka plan şeffaf */
+  box-shadow: none;         /* Hoverda gölge yok */
+}
+
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
